@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      margin: 40px;
+    }
+    h1 {
+      color: #333333;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+    th, td {
+      border: 1px solid #cccccc;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #eeeeee;
+    }
+    .section {
+      margin-top: 25px;
+    }
+    .logo {
+      width: 180px;
+    }
+    .header-info {
+      margin-top: 10px;
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <img class="logo" src="https://drive.google.com/uc?export=view&id=1odtnKOfyW9nsAejgwo_1iD3gIHqf_Hat" alt="RothaFitness Logo">
+  <div class="header-info">
+    <strong>RothaFitness Brasil</strong><br>
+    E-mail: compras@rothafitness.com
+  </div>
+
+  <h1>Ordem de Compra</h1>
+
+  <p><strong>Nº da Ordem:</strong> <<[ID_Pedido]>></p>
+  <p><strong>Data:</strong> <<[Data_Pedido]>></p>
+
+  <div class="section">
+    <h3>Fornecedor</h3>
+    <p><strong>Nome:</strong> <<[ID_Fornecedor].[Nome]>></p>
+    <p><strong>Contato:</strong> <<[ID_Fornecedor].[Contato]>></p>
+    <p><strong>Endereço:</strong> <<[ID_Fornecedor].[Endereco]>></p>
+  </div>
+
+  <div class="section">
+    <h3>Itens Solicitados</h3>
+    <table>
+      <tr>
+        <th>Qnt</th>
+        <th>Código</th>
+        <th>Descrição</th>
+        <th>Unidade</th>
+        <th>Valor Unit.</th>
+        <th>Total</th>
+      </tr>
+      <<Start:[RelatedItensPedido]>>
+      <tr>
+        <td><<[Quantidade]>></td>
+        <td><<[ID_Material].[Codigo]>></td>
+        <td><<[ID_Material].[Nome]>></td>
+        <td><<[ID_Material].[Unidade]>></td>
+        <td>R$ <<[Preco_Unitario]>></td>
+        <td>R$ <<[Subtotal_Item]>></td>
+      </tr>
+      <<End>>
+    </table>
+  </div>
+
+  <div class="section">
+    <p><strong>Subtotal:</strong> R$ <<[Subtotal]>></p>
+    <p><strong>Frete:</strong> R$ <<[Frete]>></p>
+    <p><strong>Total:</strong> <strong>R$ <<[Total]>></strong></p>
+  </div>
+
+  <div class="section">
+    <p><strong>Prazo de Entrega:</strong> <<[Prazo_Entrega]>></p>
+    <p><strong>Forma de Pagamento:</strong> <<[Forma_Pagamento]>></p>
+    <p><strong>Observações:</strong> <<[Observacoes]>></p>
+  </div>
+
+  <div class="section">
+    <p><em>Por favor, confirmar recebimento desta ordem.</em></p>
+    <p>E-mail para contato: <strong>compras@rothafitness.com</strong></p>
+  </div>
+
+</body>
+</html>
